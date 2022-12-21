@@ -26,8 +26,9 @@
     "skipLibCheck": true,
     "importHelpers": true,
     "paths": {
-      "@mod": ["src/mod"],
-      "@mod/*": ["src/mod/*"]
-    }
+      "#": ["src/components"],
+      "#/*": ["src/components/*"]
+    },
+    "jsx": "react"
   }
 }
