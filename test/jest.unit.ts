@@ -7,7 +7,11 @@ import common from './jest.common'
 const jestUnitConfig: JestConfigWithTsJest = {
   ...common,
   clearMocks: true,
-  coveragePathIgnorePatterns: ['<rootDir>/src/index.ts'],
+  coveragePathIgnorePatterns: [
+    '<rootDir>/src/index.tsx',
+    '<rootDir>/src/react-app-env.d.ts',
+    '<rootDir>/src/reportWebVitals.ts',
+  ],
   coverageThreshold: {
     global: {
       branches: 70,
