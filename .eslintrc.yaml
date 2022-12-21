@@ -1,1 +1,25 @@
-extends: ['@r1oga']
+plugins: ['@typescript-eslint', 'jest-dom', 'testing-library', 'sort']
+extends:
+  [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:sort/recommended',
+    'plugin:jest-dom/recommended',
+    'standard-with-typescript',
+    'react-app',
+    'react-app/jest',
+    'prettier',
+  ]
+parser: '@typescript-eslint/parser'
+parserOptions:
+  project: ['tsconfig.json']
+root: true
+rules:
+  '@typescript-eslint/ban-ts-comment': warn
+  '@typescript-eslint/explicit-function-return-type': off
+  '@typescript-eslint/return-await': off
+  import/newline-after-import: warn
+  no-console: warn
+  no-useless-constructor: warn
+env:
+  'jest/globals': true

@@ -35,7 +35,7 @@ scripts:
       script: nps 'test.once --selectProjects lint --coverage false'
       description: Check for lint errors
     fix:
-      script: eslint . --ext .ts --fix
+      script: eslint . --ext .js,.jsx.ts,.tsx --fix
       hiddenFromHelp: true
 
   precommit:
@@ -44,14 +44,11 @@ scripts:
 
   start:
     default:
-      script: nps build start.prod
+      script: nps barrels start.dev
       description: Start in production mode
     dev:
       script: craco start
       description: Start in dev mode
-    prod:
-      script: NODE_ENV=production node -r module-alias/register dist
-      hiddenFromHelp: true
 
   test:
     default:

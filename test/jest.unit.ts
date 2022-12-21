@@ -18,12 +18,16 @@ const jestUnitConfig: JestConfigWithTsJest = {
   },
   displayName: 'unit',
   moduleDirectories: ['node_modules', __dirname],
-  moduleFileExtensions: ['ts', 'js', 'json'],
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
-    prefix: '<rootDir>/',
-  }),
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
+  moduleNameMapper: {
+    '\\.(css|svg)$': require.resolve('./style.mock.ts'),
+    ...pathsToModuleNameMapper(compilerOptions.paths, {
+      prefix: '<rootDir>/',
+    }),
+  },
   preset: 'ts-jest',
   setupFilesAfterEnv: ['jest-chain', './test/setup.ts'],
+  testEnvironment: 'jsdom',
 }
 
 export default jestUnitConfig
