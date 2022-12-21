@@ -12,8 +12,10 @@ scripts:
     hiddenFromHelp: true
 
   compile:
-    script: tsc -p tsconfig.compile.json
+    script: craco build
     hiddenFromHelp: true
+
+  eject: craco eject
 
   fix:
     default:
@@ -33,7 +35,7 @@ scripts:
       script: nps 'test.once --selectProjects lint --coverage false'
       description: Check for lint errors
     fix:
-      script: eslint . --ext .ts --fix
+      script: eslint . --ext .js,.jsx.ts,.tsx --fix
       hiddenFromHelp: true
 
   precommit:
@@ -42,14 +44,11 @@ scripts:
 
   start:
     default:
-      script: nps build start.prod
+      script: nps barrels start.dev
       description: Start in production mode
     dev:
-      script: tsnd --cls --exit-child --ignore-watch node_modules --quiet  --respawn --rs --transpile-only -r tsconfig-paths/register src
+      script: craco start
       description: Start in dev mode
-    prod:
-      script: NODE_ENV=production node -r module-alias/register dist
-      hiddenFromHelp: true
 
   test:
     default:

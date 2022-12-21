@@ -7,7 +7,11 @@ import common from './jest.common'
 const jestUnitConfig: JestConfigWithTsJest = {
   ...common,
   clearMocks: true,
-  coveragePathIgnorePatterns: ['<rootDir>/src/index.ts'],
+  coveragePathIgnorePatterns: [
+    '<rootDir>/src/index.tsx',
+    '<rootDir>/src/react-app-env.d.ts',
+    '<rootDir>/src/reportWebVitals.ts',
+  ],
   coverageThreshold: {
     global: {
       branches: 70,
@@ -18,12 +22,16 @@ const jestUnitConfig: JestConfigWithTsJest = {
   },
   displayName: 'unit',
   moduleDirectories: ['node_modules', __dirname],
-  moduleFileExtensions: ['ts', 'js', 'json'],
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
-    prefix: '<rootDir>/',
-  }),
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
+  moduleNameMapper: {
+    '\\.(css|svg)$': require.resolve('./style.mock.ts'),
+    ...pathsToModuleNameMapper(compilerOptions.paths, {
+      prefix: '<rootDir>/',
+    }),
+  },
   preset: 'ts-jest',
   setupFilesAfterEnv: ['jest-chain', './test/setup.ts'],
+  testEnvironment: 'jsdom',
 }
 
 export default jestUnitConfig
