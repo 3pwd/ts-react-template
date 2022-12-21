@@ -3,11 +3,13 @@
   "exclude": ["test/coverage"],
   "files": ["node_modules/jest-chain/types/index.d.ts"],
   "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "noEmit": true,
     "baseUrl": ".",
     "sourceRoot": "src",
-    "target": "ESNext",
-    "module": "commonjs",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "inlineSourceMap": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -26,8 +28,8 @@
     "skipLibCheck": true,
     "importHelpers": true,
     "paths": {
-      "@mod": ["src/mod"],
-      "@mod/*": ["src/mod/*"]
+      "#": ["src/components"],
+      "#/*": ["src/components/*"]
     }
   }
 }
