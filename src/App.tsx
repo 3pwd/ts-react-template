@@ -1,5 +1,5 @@
 import './App.css'
-import Button from '#/Button'
+import { Button } from '#'
 import logo from './logo.svg'
 
 function App() {
