@@ -1,7 +1,6 @@
 node_modules
 
-# TS build dir
-dist
+build
 
 # Jest
 coverage
