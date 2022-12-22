@@ -8,7 +8,7 @@ scripts:
     description: Build project
 
   clean:
-    script: rm -rf dist
+    script: rm -rf build
     hiddenFromHelp: true
 
   compile:
@@ -57,9 +57,6 @@ scripts:
     ci:
       script: jest --config test/jest.config.ts --selectProjects unit --silent --reporters=jest-silent-reporter
       hiddenFromHelp: true
-    debug:
-      script: node --inspect-brk ./node_modules/jest/bin/jest --runInBand --watch --config test/jest.unit.ts
-      description: Start tests in debug mode (open in chrome://inspect)
     once:
       script: jest --config test/jest.config.ts
       description: Run tests (once, coverage)
