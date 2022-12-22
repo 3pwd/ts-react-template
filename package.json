@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "nps": "nps",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "setup": "pnpm 2> /dev/null || npm i -g pnpm && pnpm i"
   },
   "_moduleAliases": {
     "@mod": "dist/mod"
   },
   "author": "r1oga",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@craco/types": "^7.0.0",
     "@r1oga/eslint-config-react": "^1.0.1",

@@ -6,6 +6,8 @@ services:
     environment:
       SECRET_FILE: /run/secrets/secret
       FOO: ${FOO}
+    ports:
+      - '1337:80'
     secrets:
       - secret
     env_file:
